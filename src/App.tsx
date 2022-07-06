@@ -1,70 +1,17 @@
 import React from 'react';
 import './App.css';
+import {Card} from "./component/Card";
+import {Header} from "./component/Header";
+import {Drawer} from "./component/Drawer";
 
 function App() {
     return (
         <div className="Wrapper">
-            <div className='overlay'>
-                <div className='drawer'>
-                    <h2>Корзина</h2>
-
-                    <div className="items">
-                        <div className='cartItem'>
-                            <img width={70} height={70}
-                                 src={'https://store77.net/upload/w247/imageCache/b7b/960/3bfd1de5c256970be410d5998207b6e1.png'}/>
-                            <div>
-                                <p>ASUS E410MA-EK1281T</p>
-                                <b>28 690 руб.</b>
-                            </div>
-                            <img className={'removeBtn'} width={15} height={15} src={"/img/close-button_icon-icons.com_72803.png"}  alt={'remove'}/>
-                        </div>
-
-                        <div className='cartItem'>
-                            <img width={70} height={70}
-                                 src={'https://store77.net/upload/w247/imageCache/b7b/960/3bfd1de5c256970be410d5998207b6e1.png'}/>
-                            <div>
-                                <p>ASUS E410MA-EK1281T</p>
-                                <b>28 690 руб.</b>
-                            </div>
-                            <img className={'removeBtn'} width={15} height={15} src={"/img/close-button_icon-icons.com_72803.png"}  alt={'remove'}/>
-                        </div>
-                    </div>
-                <ul className='cardTotalBlock'>
-                    <li className='allPrice'>
-                        <span>Итого:</span>
-                        <div></div>
-                        <b>21 498 руб.</b>
-                    </li>
-                    <li className='sale'>
-                        <span>Скидка 5%</span>
-                        <div></div>
-                        <b>1074 руб.</b>
-                    </li>
-                </ul>
-                    <button className='button-new'>Оформить заказ</button>
-                </div>
+            <div style={{display: 'none'}} className='overlay'>
+                <Drawer/>
             </div>
 
-            <header>
-                <div className="headerLeft">
-                    <img width={60} height={60}
-                         src={'https://cdn0.iconfinder.com/data/icons/shopping-icons-rounded/110/Online-Shopping-1024.png'}
-                         alt={'logo'}/>
-                    <div className="headerInfo">
-                        <h3>React shop</h3>
-                        <p>Магазин электроники</p>
-                    </div>
-                </div>
-                <ul className="headerRight">
-                    <li>
-                        <img width="28" height="27" src='/img/Icon.svg'/>
-                        <span>102 999 руб.</span>
-                    </li>
-                    <li>
-                        <img width={28} height={27} src='/img/Avatar 1.png'/>
-                    </li>
-                </ul>
-            </header>
+            <Header/>
             <div className='content'>
                 <div className='all'>
                     <h1>Все товары</h1>
@@ -97,22 +44,7 @@ function App() {
                         </div>
                     </div>
 
-                    <div className='card'>
-                        <img width={133} height={112}
-                             src='//avatars.mds.yandex.net/get-mpic/5221929/img_id7837338156112880567.jpeg/orig'/>
-                        <h5>ASUS E410MA-EK1281T</h5>
-                        <div className='cardButton'>
-                            <div>
-                                <span>Цена:</span>
-                                <b>28 690 руб.</b>
-                            </div>
-                            <div>
-                                <button className="button">
-                                    <img width={11} height={11} src='/img/Icon.svg'/>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+                    <Card/>
 
                     <div className='card'>
                         <img width={133} height={112}
