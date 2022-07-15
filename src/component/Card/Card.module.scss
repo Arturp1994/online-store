@@ -1,11 +1,12 @@
 .card {
-  margin-top: 50px;
+  margin-top: 20px;
   border: 1px solid #f8f8f8;
   padding: 30px;
   width: 210px;
   border-radius: 40px;
   transition: box-shadow 0.2s ease-in-out;
   margin-right: 5px;
+  margin-bottom: 20px;
 
   &:hover{
     box-shadow: 0px 20px 35px rgb(0,0,0,0.07);
@@ -43,7 +44,7 @@
 }
 
 .button{
-  background: #FFFFFF;
+  background: #ffffff;
   border: 1px solid #f2f2f2;
   box-sizing: border-box;
   border-radius: 8px;
@@ -51,3 +52,14 @@
   width: 32px;
   cursor: pointer;
 }
+
+.greenButton{
+  background: #9cd054;
+  border: 1px solid #f2f2f2;
+  box-sizing: border-box;
+  border-radius: 8px;
+  height: 32px;
+  width: 32px;
+  cursor: pointer;
+}
+
