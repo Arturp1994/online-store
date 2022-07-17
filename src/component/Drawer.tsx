@@ -4,9 +4,11 @@ import {ArrType} from "../App";
 type DraverPropsType={
     onClose: ()=>void
     items: ArrType
+    onRemove:(id:number)=>void
 }
 
 export const Drawer = (props: DraverPropsType) => {
+
 
     return (
         <div className='overlay'>
@@ -16,7 +18,7 @@ export const Drawer = (props: DraverPropsType) => {
             <img onClick={props.onClose} className={'removeBtn'} width={15} height={15} src={"/img/close-button_icon-icons.com_72803.png"}  alt={'remove'}/>
             </div>
             <div className="items">
-                {props.items.map(m=>(
+                {props.items.map((m, index)=>(
                     <div className='cartItem'>
                         <img width={70} height={70}
                              src={m.imageURL}/>
@@ -24,7 +26,7 @@ export const Drawer = (props: DraverPropsType) => {
                             <p>{m.name}</p>
                             <b>{m.price} руб.</b>
                         </div>
-                        <img className={'removeBtn'} width={15} height={15} src={"/img/close-button_icon-icons.com_72803.png"}  alt={'remove'}/>
+                        <img onClick={()=>props.onRemove(m.id)} className={'removeBtn'} width={15} height={15} src={"/img/close-button_icon-icons.com_72803.png"}  alt={'remove'}/>
                     </div>
                 ))}
             </div>

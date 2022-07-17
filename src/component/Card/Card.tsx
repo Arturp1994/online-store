@@ -6,23 +6,33 @@ type CarsPropsType = {
     title: string,
     price: number
     imageURL: string
-    onClickPlus: (title:string, price: number, imageURL: string)=>void
-    onClickFavorite: ()=>void
+    onClickPlus?: (title:string, price: number, imageURL: string, id:number)=>void
+    id:number
+    onAddToFavorite?:(title:string, price: number, imageURL: string, id:number)=>void
+    favorite?: boolean
 }
 
 export const Card = (props: CarsPropsType) => {
 
     const [isAdded, setIsAdded]=useState(false)
+    const [isFavorite, setIsFavorite]=useState(props.favorite)
 
     const onClickPlusHandler = ()=>{
-        props.onClickPlus(props.title, props.price, props.imageURL)
+        if (props.onClickPlus) {
+            props.onClickPlus(props.title, props.price, props.imageURL, props.id)
+        }
         setIsAdded(!isAdded)
+    }
+    const onClickFavorite = ()=>{
+        setIsFavorite(!isFavorite)
+        if (props.onAddToFavorite){
+        props.onAddToFavorite(props.title, props.price, props.imageURL, props.id)}
     }
 
     return (
         <div className={style.card}>
             <div className={style.favorite}>
-                <img width={18} height={15} src={'/img/Iconnotlike.png'} alt={'notLike'} onClick={props.onClickFavorite}/>
+                <img width={20} height={16} src={isFavorite? '/img/ddd.png': '/img/Iconnotlike.png'} alt={'notLike'} onClick={onClickFavorite}/>
             </div>
 
             <img width={133} height={112}
