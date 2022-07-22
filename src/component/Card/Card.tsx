@@ -17,12 +17,17 @@ export const Card = (props: CarsPropsType) => {
     const [isAdded, setIsAdded]=useState(false)
     const [isFavorite, setIsFavorite]=useState(props.favorite)
 
-    const onClickPlusHandler = ()=>{
-        if (props.onClickPlus) {
-            props.onClickPlus(props.title, props.price, props.imageURL, props.id)
-        }
-        setIsAdded(!isAdded)
-    }
+    const onClickPlusHandler = () => {
+        if (isAdded === true){
+            setIsAdded(false)
+        } else {
+            if (props.onClickPlus) {
+                props.onClickPlus(props.title, props.price, props.imageURL, props.id)
+            }
+            setIsAdded(!isAdded)
+        }}
+
+
     const onClickFavorite = ()=>{
         setIsFavorite(!isFavorite)
         if (props.onAddToFavorite){

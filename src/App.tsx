@@ -7,6 +7,7 @@ import {Home} from "./component/pages/Home";
 import {HashRouter} from "react-router-dom";
 import {Favorites} from "./component/pages/Favorites";
 
+
 export type ArrType = {
     name: string
     price: number
@@ -50,39 +51,44 @@ function App() {
     }
 
     const onAddToFavorite = async (name: string, price: number, imageURL: string, id: number) => {
-        if (favorites.find(o=>o.id===id)){
+        if (favorites.find(o => o.id === id)) {
             axios.delete(`https://62d145addccad0cf176431e2.mockapi.io/favorites/${id}`)
         } else {
-        const{data} = await axios.post('https://62d145addccad0cf176431e2.mockapi.io/favorites', {name, price, imageURL, id})
-        setFavorites((prev)=>[...prev, data])
-    }}
+            const {data} = await axios.post('https://62d145addccad0cf176431e2.mockapi.io/favorites', {
+                name,
+                price,
+                imageURL,
+                id
+            })
+            setFavorites((prev) => [...prev, data])
+        }
+    }
 
     return (
         <div>
-            <HashRouter>
+                <HashRouter>
 
-                <div className="Wrapper">
+                    <div className="Wrapper">
 
-                    {cardOpened && <Drawer onRemove={onRemoveItem} items={cardItems} onClose={() => {
-                        setCardOpened(false)
-                    }}/>}
-
-                    <Header onClickCard={() => {
-                        setCardOpened(true)
-                    }}/>
-                    <Favorites favorites={favorites} onAddToFavorite={onAddToFavorite}/>
-                    <Home
-                        searchValue={searchValue}
-                        onChangeSearchInput={onChangeSearchInput}
-                        items={items}
-                        onAddToFavorite={onAddToFavorite}
-                        onAddToCard={onAddToCard}
-
-
-                    />
-                </div>
-            </HashRouter>
+                        {cardOpened && <Drawer setCardItems={setCardItems}onRemove={onRemoveItem} items={cardItems} onClose={() => {
+                            setCardOpened(false)
+                        }}/>}
+                        <Header onClickCard={() => {
+                            setCardOpened(true)
+                        }}/>
+                        <Favorites favorites={favorites} onAddToFavorite={onAddToFavorite}/>
+                        <Home
+                            searchValue={searchValue}
+                            onChangeSearchInput={onChangeSearchInput}
+                            items={items}
+                            onAddToFavorite={onAddToFavorite}
+                            onAddToCard={onAddToCard}
+                        />
+                    </div>
+                </HashRouter>
         </div>
+
+
     );
 }
 
