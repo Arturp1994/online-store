@@ -6,6 +6,7 @@ import {Drawer} from "./component/Drawer";
 import {Home} from "./component/pages/Home";
 import {HashRouter} from "react-router-dom";
 import {Favorites} from "./component/pages/Favorites";
+import {Orders} from "./component/pages/Orders";
 
 
 export type ArrType = {
@@ -23,14 +24,15 @@ function App() {
     const [cardOpened, setCardOpened] = useState(false)
     const [searchValue, setSearchValue] = useState('')
     const [favorites, setFavorites] = useState<ArrType>([])
+    const [order, setOrder]=useState<ArrType>([])
 
     useEffect(() => {
         axios.get('https://62d145addccad0cf176431e2.mockapi.io/Items').then((res) => {
             setItems(res.data)
         })
-        axios.get('https://62d145addccad0cf176431e2.mockapi.io/card').then((res) => {
-            setCardItems(res.data)
-        })
+        // axios.get('https://62d145addccad0cf176431e2.mockapi.io/card').then((res) => {
+        //     setCardItems(res.data)
+        // })
         axios.get('https://62d145addccad0cf176431e2.mockapi.io/favorites').then((res) => {
             setFavorites(res.data)
         })
@@ -64,18 +66,23 @@ function App() {
         }
     }
 
+    const sendOrder = (a:ArrType)=>{
+        setOrder(a)
+    }
+
     return (
         <div>
                 <HashRouter>
 
                     <div className="Wrapper">
 
-                        {cardOpened && <Drawer setCardItems={setCardItems}onRemove={onRemoveItem} items={cardItems} onClose={() => {
+                        {cardOpened && <Drawer sendOrder={sendOrder} cardItems={cardItems} setCardItems={setCardItems} onRemove={onRemoveItem} items={cardItems} onClose={() => {
                             setCardOpened(false)
                         }}/>}
-                        <Header onClickCard={() => {
+                        <Header cardItems={cardItems} onClickCard={() => {
                             setCardOpened(true)
                         }}/>
+                        <Orders order={order}/>
                         <Favorites favorites={favorites} onAddToFavorite={onAddToFavorite}/>
                         <Home
                             searchValue={searchValue}

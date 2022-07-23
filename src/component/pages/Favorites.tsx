@@ -1,4 +1,4 @@
-import React, {ChangeEvent} from "react";
+import React from "react";
 import {ArrType} from "../../App";
 import {Route, Routes} from "react-router-dom";
 import {Card} from "../Card/Card";

@@ -1,4 +1,4 @@
-import React, {useContext, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import {ArrType} from "../App";
 import axios from "axios";
 
@@ -7,18 +7,25 @@ type DraverPropsType = {
     items: ArrType
     onRemove: (id: number) => void
     setCardItems: (a: ArrType)=> void
+    cardItems:ArrType
+    sendOrder:(a: ArrType)=>void
 }
 
 export const Drawer = (props: DraverPropsType) => {
 
+
     const [isOrderComplete, setIsOrderComplete] = useState(false)
 
     const onClickOrder = () => {
-        axios.post('https://62d145addccad0cf176431e2.mockapi.io/orders', props.items)
+        props.sendOrder(props.items)
         axios.put('https://62d145addccad0cf176431e2.mockapi.io/card', [])
         setIsOrderComplete(true)
         props.setCardItems([])
     }
+
+
+
+    const totalPrice = props.cardItems.reduce((sum,obj)=> obj.price + sum, 0)
 
     return (
         <>
@@ -63,14 +70,19 @@ export const Drawer = (props: DraverPropsType) => {
                         </div>
                         <ul className='cardTotalBlock'>
                             <li className='allPrice'>
-                                <span>Итого:</span>
+                                <span>Итого</span>
                                 <div></div>
-                                <b>21 498 руб.</b>
+                                <b>{totalPrice} руб.</b>
                             </li>
                             <li className='sale'>
                                 <span>Скидка 5%</span>
                                 <div></div>
-                                <b>1074 руб.</b>
+                                <b>{Math.floor(totalPrice * 0.05)} руб.</b>
+                            </li>
+                            <li className='sale'>
+                                <span>Всего со скидкой</span>
+                                <div></div>
+                                <b>{Math.floor(totalPrice-(totalPrice * 0.05))} руб.</b>
                             </li>
                         </ul>
                         <button className='button-new' onClick={onClickOrder} disabled={false}>Оформить заказ</button>
