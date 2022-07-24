@@ -34,7 +34,7 @@ export const Drawer = (props: DraverPropsType) => {
                             <div className='basket'>
                                 <h2>Корзина</h2>
                                 <img onClick={props.onClose} className={'removeBtn'} width={25} height={25}
-                                     src={"/img/1491313931-cross_82985.png"} alt={'remove'}/>
+                                     src={"img/1491313931-cross_82985.png"} alt={'remove'}/>
                             </div>
                             <div className={'success'}>
                                 <h3>Спасибо! Ваш заказ принят.</h3>
