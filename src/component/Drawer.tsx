@@ -51,7 +51,7 @@ export const Drawer = (props: DraverPropsType) => {
                         <div className='basket'>
                             <h2>Корзина</h2>
                             <img onClick={props.onClose} className={'removeBtn'} width={25} height={25}
-                                 src={"/img/1491313931-cross_82985.png"} alt={'remove'}/>
+                                 src={"img/1491313931-cross_82985.png"} alt={'remove'}/>
                         </div>
                         <div className="items">
                             {props.items.map((m, index) => (
@@ -64,7 +64,7 @@ export const Drawer = (props: DraverPropsType) => {
                                     </div>
                                     <img onClick={() => props.onRemove(m.id)} className={'removeBtn'} width={15}
                                          height={15}
-                                         src={"/img/close-button_icon-icons.com_72803.png"} alt={'remove'}/>
+                                         src={"img/close-button_icon-icons.com_72803.png"} alt={'remove'}/>
                                 </div>
                             ))}
                         </div>
