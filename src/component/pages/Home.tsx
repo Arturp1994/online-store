@@ -21,7 +21,7 @@ export const Home = (props: HomePropsType) => {
                         <h1>{props.searchValue ? `Поиск по запросу: '${props.searchValue}'` : 'Все товары'}</h1>
                         <div className='search-block'>
                             <div><img width={25} height={25}
-                                      src={"/img/1485477207-magnifier_78608.png"}
+                                      src={"img/1485477207-magnifier_78608.png"}
                                       alt={'Search'}/></div>
                             <div><input placeholder={'Поиск...'} onChange={props.onChangeSearchInput}/></div>
                         </div>

@@ -37,7 +37,7 @@ export const Card = (props: CarsPropsType) => {
     return (
         <div className={style.card}>
             <div className={style.favorite}>
-                <img width={20} height={16} src={isFavorite? '/img/ddd.png': '/img/Iconnotlike.png'} alt={'notLike'} onClick={onClickFavorite}/>
+                <img width={20} height={16} src={isFavorite? 'img/ddd.png': 'img/Iconnotlike.png'} alt={'notLike'} onClick={onClickFavorite}/>
             </div>
 
             <img width={133} height={112}
@@ -50,7 +50,7 @@ export const Card = (props: CarsPropsType) => {
                 </div>
                 <div>
                     <button className={isAdded? style.greenButton:style.button} onClick={onClickPlusHandler}>
-                        <img width={11} height={11} src='/img/Icon.svg' alt={'icon'}/>
+                        <img width={11} height={11} src='img/Icon.svg' alt={'icon'}/>
                     </button>
                 </div>
             </div>

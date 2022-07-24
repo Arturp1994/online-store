@@ -28,17 +28,17 @@ export const Header = (props: HeaderPropsType) => {
             </NavLink>
             <ul className={style.headerRight}>
                 <li onClick={props.onClickCard}>
-                    <img className={style.plus} width="28" height="27" src='/img/Icon.svg'/>
+                    <img className={style.plus} width="28" height="27" src={'img/Icon.svg'}/>
                     <span className={style.plus}>{totalPrice} руб.</span>
                 </li>
                 <li>
                     <NavLink to={'/favorites'}>
-                        <img width={32} height={31} src='/img/Iconlike.png'/>
+                        <img width={32} height={31} src={'img/Iconlike.png'}/>
                     </NavLink>
                 </li>
                 <li>
                     <NavLink to={'/orders'}>
-                    <img width={28} height={27} src='/img/Avatar 1.png'/>
+                    <img width={28} height={27} src={'img/Avatar 1.png'}/>
                     </NavLink>
                 </li>
             </ul>
