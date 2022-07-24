@@ -19,10 +19,12 @@ body {
   margin-top: 20px;
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .content {
   padding-left: 10px;
+
 
   h1 {
     margin: 0;

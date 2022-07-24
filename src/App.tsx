@@ -38,6 +38,7 @@ function App() {
         })
     }, []);
 
+
     const onAddToCard = (name: string, price: number, imageURL: string, id: number) => {
         axios.post('https://62d145addccad0cf176431e2.mockapi.io/card', {name, price, imageURL, id})
         setCardItems([...cardItems, {name, price, imageURL, id}])
